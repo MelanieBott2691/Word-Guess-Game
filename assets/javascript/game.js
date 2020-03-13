@@ -1,5 +1,5 @@
 // JavaScript Document
-$(document).ready(function() {
+// document.ready(function () {
 
     var possibleWords = ["Care Bears", "Pound Puppies", "Drangon Ball Z", "He-Man", "Snorks", "Thunder Cats", "Teenage Mutant Ninja Turtle", "Duck Tales", "Gummi Bears", "The Smurfs", "The Jetsons", "Transformers"]
 
@@ -15,7 +15,7 @@ $(document).ready(function() {
     resetGame()
 
     document.onkeypress=function(event) {
-        if (isAlpha(event.key) && !pausedGame) {
+        if (isAlpha(event.key) && !pauseGame) {
             checkForLetter(event.key.toUpperCase())
         }
     }
@@ -81,7 +81,7 @@ $(document).ready(function() {
         document.getElementById("remainingGuesses").innerHTML = numGuess;
         document.getElementById("guessedLetters").innerHTML = guessedLetters.join("");
     }
-})
+// })
 
 
 
