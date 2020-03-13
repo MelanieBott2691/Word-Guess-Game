@@ -7,9 +7,9 @@
     background-size: cover;
 }
 
-.main-header {
-    background-image: url("assets/images/AdobeStock_281044005.jpeg");
-    background-repeat: no-repeat;
+body {
+    background-image: url ("../assets/images/vintage-tv-1116587_640.jpg");
+    background-repeat: repeat-x;
     background-position: center;
     background-size: cover;
     width: 100%;

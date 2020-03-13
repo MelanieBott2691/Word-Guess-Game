@@ -7,15 +7,17 @@
     <title>Word Guess Game</title>
 
     <link rel="stylesheet" href="">
-    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     
 </head>
 
-<body>
+<body img src="assets/images/AdobeStock_281044005.jpeg" alt="television" height="80" width="100">
+
     <div id="sample"></div>
     <div class="container">
         <h1>1980 Top 12 Cartoons</h1>
+        
         <p>Press any key to get started!</p>
 
         <h4>Wins</h4>
@@ -30,6 +32,26 @@
     </div>
 
     <script src="assets/javascript/game.js"></script>
-
+    <audio id="myAudio">
+        <source src="" type="audio/mp3">
+        <source src="" type="audio/mp3">
+    </audio>
+    <p>Click the buttons to play or pause audio.</p>
+    <button onclick="playAudio()" type="button">Play Audio</button>
+    <button onclick="pauseAudio()" type="button">Pause Audio</button>
 </body>
+   
+   
+    <footer>
+    <script>
+        var x = document.getElementById("myAudio");
+        function playAudio() {
+            x.play();
+        }
+        function pauseAudio(){
+            x.pause();
+        }
+    </script>
+    </footer>
+
 </html>

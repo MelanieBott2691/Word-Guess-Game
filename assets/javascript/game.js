@@ -1,6 +1,13 @@
 // JavaScript Document
 // document.ready(function () {
-
+    var x = document.getElementById("myAudio");
+    function playAudio() {
+        x.play();
+    }
+    function pauseAudio(){
+        x.pause();
+    }
+    
     var possibleWords = ["Care Bears", "Pound Puppies", "Drangon Ball Z", "He-Man", "Snorks", "Thunder Cats", "Teenage Mutant Ninja Turtle", "Duck Tales", "Gummi Bears", "The Smurfs", "The Jetsons", "Transformers"]
 
     const maxGuess = 12;
@@ -23,7 +30,7 @@
         var foundLetter=false;
         var correctSound=document.createElement("audio");
         var incorrectSound=document.createElement("audio");
-        correctSound.setAttribute("src","assets/sound/mp3");
+        correctSound.setAttribute("src","assets/mp3/ES_2 - Rospigg.mp3");
         incorrectSound.setAttribute("src", "assets/sound/mp3");
 
         for (var i=0, j=wordToMatch.length; i<j; i++) {
