@@ -27,3 +27,7 @@ body {
     height: 80px;
     border: none;
 }
+.jumbotron {
+    height: 206px;
+    length: 400px;
+}

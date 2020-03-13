@@ -1,12 +1,4 @@
 // JavaScript Document
-// document.ready(function () {
-    var x = document.getElementById("myAudio");
-    function playAudio() {
-        x.play();
-    }
-    function pauseAudio(){
-        x.pause();
-    }
     
     var possibleWords = ["Care Bears", "Pound Puppies", "Drangon Ball Z", "He-Man", "Snorks", "Thunder Cats", "Teenage Mutant Ninja Turtle", "Duck Tales", "Gummi Bears", "The Smurfs", "The Jetsons", "Transformers"]
 
@@ -88,7 +80,6 @@
         document.getElementById("remainingGuesses").innerHTML = numGuess;
         document.getElementById("guessedLetters").innerHTML = guessedLetters.join("");
     }
-// })
 
 
 

@@ -6,16 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Word Guess Game</title>
 
-    <link rel="stylesheet" href="">
+    <link rel="stylesheet" href="bootstrap">
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     
 </head>
 
-<body img src="assets/images/AdobeStock_281044005.jpeg" alt="television" height="80" width="100">
 
     <div id="sample"></div>
-    <div class="container">
+    <div class="container" img src="assets/images/vintagetv.jpg">
         <h1>1980 Top 12 Cartoons</h1>
         
         <p>Press any key to get started!</p>
@@ -32,26 +31,35 @@
     </div>
 
     <script src="assets/javascript/game.js"></script>
+
+</body>
+<br>
+<br>
+<br>
+<footer align="center">
+    <div class="container">
+        <div class="jumbotron">
+            
+        
     <audio id="myAudio">
-        <source src="" type="audio/mp3">
-        <source src="" type="audio/mp3">
+        <source src="assets/mp3/ES_2 - Rospigg.mp3" type="audio/mp3">
+        <source src="assets/mp3/ES_I Don't Mind-Particle...use.mp3" type="audio/mp3">
     </audio>
     <p>Click the buttons to play or pause audio.</p>
     <button onclick="playAudio()" type="button">Play Audio</button>
     <button onclick="pauseAudio()" type="button">Pause Audio</button>
-</body>
-   
-   
-    <footer>
-    <script>
-        var x = document.getElementById("myAudio");
-        function playAudio() {
-            x.play();
-        }
-        function pauseAudio(){
-            x.pause();
-        }
-    </script>
-    </footer>
+
+<script>
+    var x = document.getElementById("myAudio");
+    function playAudio() {
+        x.play();
+    }
+    function pauseAudio(){
+        x.pause();
+    }
+</script>
+        </div>
+    </div>
+</footer>
 
 </html>
