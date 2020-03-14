@@ -1,6 +1,6 @@
 // JavaScript Document
     
-    var possibleWords = ["Care Bears", "Shirt Tales", "Drangon Ball Z", "He-Man", "Hanna Barbera", "Thunder Cats", "Teenage Mutant Ninja Turtle", "Duck Tales", "The Smurfs", "Transformers"]
+    var possibleWords = ["Care Bears", "Shirt Tales", "Dragon Ball Z", "He-Man", "Hanna Barbera", "Thunder Cats", "Teenage Mutant Ninja Turtle", "Duck Tales", "The Smurfs", "Transformers"]
    
     const maxGuess = 12;
     var pauseGame = false;
@@ -10,6 +10,12 @@
     var wordToMatch;
     var numGuess;
     var wins = 0;
+    var lost = 0;
+
+    var correctSound=document.createElement("audio");
+    var incorrectSound=document.createElement("audio");
+    correctSound.setAttribute("src","assets/mp3/correct.wav");
+    incorrectSound.setAttribute("src","assets/mp3/wrong.wav");
 
     resetGame()
 
@@ -20,35 +26,37 @@
     }
     function checkForLetter(letter) {
         var foundLetter=false;
-        var correctSound=document.createElement("audio");
-        var incorrectSound=document.createElement("audio");
-        correctSound.setAttribute("src","assets/mp3/correct.wav");
-        incorrectSound.setAttribute("src","assets/sound/mp3/wrong.wav");
 
         for (var i=0, j=wordToMatch.length; i<j; i++) {
             if (letter === wordToMatch[i]) {
                 guessingWord[i] = letter;
                 foundLetter = true;
-                correctSound.play();
                 if (guessingWord.join("") === wordToMatch) {
+                    correctSound.play();
                     wins++;
                     pauseGame=true;
                     updateDisplay();
-                    setTimeout(resetGame,5000);
+                    setTimeout(resetGame, 0);
                 }
             }
          }
+        
          if (!foundLetter) {
-             incorrectSound.play();
              if (!guessedLetters.includes(letter)) {
                  guessedLetters.push(letter);
                  numGuess--;
-             }
+             
              if (numGuess === 0) {
                  guessingWord=wordToMatch.split();
                  pauseGame=true;
-                 setTimeour(resetGame, 5000);
-             }
+                 setTimeout(resetGame, -1);
+                 incorrectSound.play();
+                 lost++;
+                 pauseGame=true;
+                 updateDisplay();
+            
+                }
+            }
          }
          updateDisplay();
     }
@@ -67,9 +75,10 @@
 
         for (var i=0, j=wordToMatch.length; i < j; i++){
             if (wordToMatch[i] === " ") {
-                guessingWord.push(" ")
-            } else {
-                guessingWord.push("_")
+                guessingWord.push('\xa0\xa0\xa0');
+            } 
+            else {
+                guessingWord.push("_ ")
             }
         }
         updateDisplay();
