@@ -1,7 +1,7 @@
 // JavaScript Document
     
-    var possibleWords = ["Care Bears", "Pound Puppies", "Drangon Ball Z", "He-Man", "Snorks", "Thunder Cats", "Teenage Mutant Ninja Turtle", "Duck Tales", "Gummi Bears", "The Smurfs", "The Jetsons", "Transformers"]
-
+    var possibleWords = ["Care Bears", "Shirt Tales", "Drangon Ball Z", "He-Man", "Hanna Barbera", "Thunder Cats", "Teenage Mutant Ninja Turtle", "Duck Tales", "The Smurfs", "Transformers"]
+   
     const maxGuess = 12;
     var pauseGame = false;
 

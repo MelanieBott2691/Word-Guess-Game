@@ -7,6 +7,22 @@ img {
     margin-left: auto;
     margin-right: auto;
 }
+.container {
+    vertical-align: auto;
+    
+}
+
+table {
+    border: 1px solid black;
+    border-collapse: collapse;
+    align-content: center;
+    text-align: center;
+}
+th, td {
+    padding: 5px;
+    text-align: left;
+}
+
 .bg {
     background-image: url("assets/images/AdobeStock_281044005.jpeg");
     background-position: center;
