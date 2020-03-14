@@ -2,56 +2,62 @@
 #backgroundImg {
     background-image: src("assets/images/vintagetv.jpg");
 }
+.bgcolor {
+    background-color: rgb(137, 161, 89);
+    background-image: src("assets/images/vintagetv.jpg");
+}
 img {
     display: block;
     margin-left: auto;
     margin-right: auto;
-}
-.container {
-    vertical-align: auto;
     
 }
+.container {
+    text-align: center;
 
-table {
-    border: 1px solid black;
+}
+.container-pictures {
+    align-content: center;
+    padding-bottom: 380px;
+    padding-top: 380px;
+
+}
+h2 {
+    border: none !important;
+    color: rgb(224, 20, 20);
+    text-align: center;
+}
+
+h4 {
+    color: rgb(12, 177, 206);
+}
+
+#guess-section {
+    border: 15px ridge rgb(185, 29, 185);
+    background:rgb(225, 237, 245);
     border-collapse: collapse;
     align-content: center;
     text-align: center;
-}
-th, td {
-    padding: 5px;
-    text-align: left;
-}
-
-.bg {
-    background-image: url("assets/images/AdobeStock_281044005.jpeg");
-    background-position: center;
-    height: 100%;
-    background-repeat: no-repeat;
-    background-size: cover;
+    border-radius: 25px;
+    background-image: image("assets/images/tv-310801_1280.png");
+    background-position: left top;
+    background-repeat: repeat;
+    padding: 20px; 
+    width: 800px;
+    height: 550px; 
 }
 
-body {
-    background-image: url ("../assets/images/vintage-tv-1116587_640.jpg");
-    background-repeat: repeat-x;
-    background-position: center;
-    background-size: cover;
-    width: 100%;
-    height: 100%;
-}
-
-#JumboImg{
-    background-position: center;
-    width: 80px;
-}
-.jumboBackground{
-    background-image: url("");
-    background-size: 150px;
-    width: 100px;
-    height: 80px;
-    border: none;
+.footer {
+    position: center;
+    bottom: 0;
+    color: purple;
+    text-align: center;
 }
 .jumbotron {
-    height: 206px;
-    length: 400px;
+    background-color: lightsalmon;
+    width: 1140px;
+    height: 150px;
+    align-content: center;
+    
+   
 }

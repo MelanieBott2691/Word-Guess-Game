@@ -22,8 +22,8 @@
         var foundLetter=false;
         var correctSound=document.createElement("audio");
         var incorrectSound=document.createElement("audio");
-        correctSound.setAttribute("src","assets/mp3/ES_2 - Rospigg.mp3");
-        incorrectSound.setAttribute("src", "assets/sound/mp3");
+        correctSound.setAttribute("src","assets/mp3/correct.wav");
+        incorrectSound.setAttribute("src", "assets/sound/mp3/wrong.wav");
 
         for (var i=0, j=wordToMatch.length; i<j; i++) {
             if (letter === wordToMatch[i]) {
