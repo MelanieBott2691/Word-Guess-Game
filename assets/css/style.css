@@ -1,4 +1,12 @@
 
+#backgroundImg {
+    background-image: src("assets/images/vintagetv.jpg");
+}
+img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
 .bg {
     background-image: url("assets/images/AdobeStock_281044005.jpeg");
     background-position: center;
@@ -21,7 +29,7 @@ body {
     width: 80px;
 }
 .jumboBackground{
-    background-image: url("assets/images/tv-310801_1280.png");
+    background-image: url("");
     background-size: 150px;
     width: 100px;
     height: 80px;
