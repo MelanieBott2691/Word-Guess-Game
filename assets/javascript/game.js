@@ -1,14 +1,13 @@
 // JavaScript Document
     
-    var possibleWords = ["Care Bears", "Shirt Tales", "Dragon Ball Z", "He-Man", "Hanna Barbera", "Thunder Cats", "Teenage Mutant Ninja Turtle", "Duck Tales", "The Smurfs", "Transformers"]
+    var possibleWords = ["Care Bears", "Shirt Tales", "Dragon Ball Z", "He Man", "Hanna Barbera", "Thunder Cats", "Teenage Mutant Ninja Turtle", "Duck Tales", "The Smurfs", "Transformers"]
    
-    const maxGuess = 12;
+    var maxGuess = 8;
     var pauseGame = false;
-
     var guessedLetters = [];
     var guessingWord = [];
     var wordToMatch;
-    var numGuess;
+    var numGuess = 0;
     var wins = 0;
     var lost = 0;
 
@@ -25,23 +24,23 @@
         }
     }
     function checkForLetter(letter) {
-        var foundLetter=false;
+        var guessedLetters = false;
 
-        for (var i=0, j=wordToMatch.length; i<j; i++) {
+        for (var i=0, x=wordToMatch.length; i < x; i++) {
             if (letter === wordToMatch[i]) {
                 guessingWord[i] = letter;
-                foundLetter = true;
+                guessedLetters = true;
                 if (guessingWord.join("") === wordToMatch) {
                     correctSound.play();
                     wins++;
                     pauseGame=true;
                     updateDisplay();
-                    setTimeout(resetGame, 0);
+                    setTimeout(resetGame, -1);
                 }
             }
          }
         
-         if (!foundLetter) {
+         if (!guessedLetters) {
              if (!guessedLetters.includes(letter)) {
                  guessedLetters.push(letter);
                  numGuess--;
@@ -73,7 +72,7 @@
         guessedLetters = [];
         guessingWord = [];
 
-        for (var i=0, j=wordToMatch.length; i < j; i++){
+        for (var i=0, x=wordToMatch.length; i < x; i++){
             if (wordToMatch[i] === " ") {
                 guessingWord.push('\xa0\xa0\xa0');
             } 
