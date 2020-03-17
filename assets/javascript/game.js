@@ -6,15 +6,13 @@
     var pauseGame = false;
     var guessedLetters = [];
     var guessingWord = [];
-    var wordToMatch;
-    var numGuess = 0;
+    var wordToMatch = "";
+    
     var wins = 0;
-    var lost = 0;
+    var losses = 0;
+    var numGuessRemain = 0;
 
-    var correctSound=document.createElement("audio");
-    var incorrectSound=document.createElement("audio");
-    correctSound.setAttribute("src","assets/mp3/correct.wav");
-    incorrectSound.setAttribute("src","assets/mp3/wrong.wav");
+    
 
     resetGame()
 
@@ -41,7 +39,7 @@
          }
         
          if (!guessedLetters) {
-             if (!guessedLetters.includes(letter)) {
+             if (!guessedLetters.push(letter)) {
                  guessedLetters.push(letter);
                  numGuess--;
              
@@ -89,5 +87,11 @@
         document.getElementById("guessedLetters").innerHTML = guessedLetters.join("");
     }
 
+
+
+var correctSound=document.createElement("myAudio");
+    var incorrectSound=document.createElement("myAudio");
+    correctSound.setAttribute("src","assets/mp3/correct.wav");
+    incorrectSound.setAttribute("src","assets/mp3/wrong.wav");
 
 
