@@ -1,6 +1,6 @@
 // JavaScript Document
-    
-    var possibleWords = ["Care Bears", "Shirt Tales", "Dragon Ball Z", "He Man", "Hanna Barbera", "Thunder Cats", "Teenage Mutant Ninja Turtle", "Duck Tales", "The Smurfs", "Transformers"]
+
+    var possibleWords = ["Care Bears", "Shirt Tales", "Dragon Ball Z", "He Man", "Hanna Barbera", "Thunder Cats", "Teenage Mutant Ninja Turtle", "Duck Tales", "The Smurfs", "Transformers"];
    
     var maxGuess = 8;
     var pauseGame = false;
@@ -10,11 +10,12 @@
     
     var wins = 0;
     var losses = 0;
-    var numGuessRemain = 0;
+    var numGuessRemain = maxGuess;
+    var deBug = false;
 
     
 
-    resetGame()
+    resetGame ();
 
     document.onkeypress=function(event) {
         if (isAlpha(event.key) && !pauseGame) {
@@ -22,76 +23,84 @@
         }
     }
     function checkForLetter(letter) {
-        var guessedLetters = false;
-
-        for (var i=0, x=wordToMatch.length; i < x; i++) {
+        var correctLetter = false;
+        
+        for (var i = 0, x=wordToMatch.length; i < x; i++) {
             if (letter === wordToMatch[i]) {
                 guessingWord[i] = letter;
-                guessedLetters = true;
-                if (guessingWord.join("") === wordToMatch) {
-                    correctSound.play();
-                    wins++;
-                    pauseGame=true;
-                    updateDisplay();
-                    setTimeout(resetGame, -1);
-                }
+                correctLetter = true;
             }
          }
-        
-         if (!guessedLetters) {
-             if (!guessedLetters.push(letter)) {
-                 guessedLetters.push(letter);
-                 numGuess--;
-             
-             if (numGuess === 0) {
-                 guessingWord=wordToMatch.split();
-                 pauseGame=true;
-                 setTimeout(resetGame, -1);
-                 incorrectSound.play();
-                 lost++;
-                 pauseGame=true;
-                 updateDisplay();
-            
-                }
+
+        var tempGuess = guessingWord.join("");
+         while (tempGuess.includes('\xa0\xa0\xa0')) {
+             tempGuess=tempGuess.replace('\xa0\xa0\xa0'," ");
+         }
+ 
+         if (tempGuess === wordToMatch) {
+            console.log("victory");
+            document.getElementById("correctSound").play();
+            wins++;
+            pauseGame=true;
+            updateDisplay();
+            setTimeout(resetGame, -1);
+        }
+
+         if (!correctLetter) {
+             if (!guessedLetters.includes(letter)) {
+                 if(numGuessRemain > 1){
+                     guessedLetters.push(letter);
+                     numGuessRemain--;
+                 }
+                 else {
+                    guessingWord=wordToMatch.split();
+                    pauseGame=true;
+                    setTimeout(resetGame, -1);
+                    incorrectSound.play();
+                    losses++;
+                    pauseGame=true;
+                    updateDisplay();
+               }
             }
          }
          updateDisplay();
     }
     function isAlpha (ch){
-        return /[A-Z]$/i.test(ch);
+        return /^[A-Z]$/i.test(ch);
     }
     function resetGame(){
-        numGuess = maxGuess;
+        numGuessRemain = maxGuess;
         pauseGame = false;
         
-        wordToMatch = possibleWords[Math.floor(Math.random() * possibleWords.length)].toUpperCase()
-        console.log(wordToMatch);
-
+        if (deBug) {
+            wordToMatch = possibleWords[3].toUpperCase();
+        }
+        else {
+            wordToMatch = possibleWords[Math.floor(Math.random() * possibleWords.length)].toUpperCase()
+        }
+       
         guessedLetters = [];
         guessingWord = [];
 
         for (var i=0, x=wordToMatch.length; i < x; i++){
             if (wordToMatch[i] === " ") {
-                guessingWord.push('\xa0\xa0\xa0');
+                guessingWord.push('\xa0\xa0\xa0');   //create a string with multiple words
             } 
             else {
-                guessingWord.push("_ ")
+                guessingWord.push("_ ")        //space after _ to add seperation between words
             }
         }
         updateDisplay();
     }
+    //user getElementById to grab the id from html
     function updateDisplay() {
         document.getElementById("totalWins").innerHTML = wins;
+        document.getElementById("totalLosses").innerHTML = losses;
         document.getElementById("currentWord").innerHTML = guessingWord.join("");
-        document.getElementById("remainingGuesses").innerHTML = numGuess;
+        document.getElementById("remainingGuesses").innerHTML = numGuessRemain;
         document.getElementById("guessedLetters").innerHTML = guessedLetters.join("");
     }
 
 
 
-var correctSound=document.createElement("myAudio");
-    var incorrectSound=document.createElement("myAudio");
-    correctSound.setAttribute("src","assets/mp3/correct.wav");
-    incorrectSound.setAttribute("src","assets/mp3/wrong.wav");
-
-
+    
