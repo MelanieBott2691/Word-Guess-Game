@@ -4,7 +4,7 @@
 
 # THEME: Top Twelve 80s Cartoons
 
-![screenshot](assets/images/screenshot.png)
+<img src="assets/images/screenshot.png" width="600px">
 
 ### Instructions
 - Used key events to listen for the letters that the player will type.
